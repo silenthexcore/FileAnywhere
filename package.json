@@ -1,0 +1,58 @@
+{
+  "name": "fileanywhere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FileAnywhere (随档) — a private, browser-based file manager for Windows.",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "cross-env NODE_ENV=development tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@codemirror/lang-css": "^6.3.1",
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-javascript": "^6.2.4",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-markdown": "^6.3.4",
+    "@codemirror/lang-python": "^6.2.1",
+    "@codemirror/lang-sql": "^6.9.0",
+    "@codemirror/lang-xml": "^6.1.0",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.1",
+    "@lezer/highlight": "^1.2.1",
+    "@uiw/react-codemirror": "^4.24.2",
+    "archiver": "^7.0.1",
+    "busboy": "^1.6.0",
+    "clsx": "^2.1.1",
+    "express": "^4.21.2",
+    "iconv-lite": "^0.6.3",
+    "lucide-react": "^0.525.0",
+    "mime-types": "^2.1.35",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.3",
+    "@types/busboy": "^1.5.4",
+    "@types/express": "^4.17.25",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0"
+  }
+}

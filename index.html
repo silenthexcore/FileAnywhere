@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="FileAnywhere (随档) — a private, browser-based file manager for Windows." />
+    <meta name="theme-color" content="#f4f6fb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>FileAnywhere · 随档</title>
+    <style>
+      html { background: #f4f6fb; }
+      html[data-theme='dark'] { background: #080b12; }
+      body { margin: 0; }
+    </style>
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem('fa.prefs.v1');
+          var prefs = raw ? JSON.parse(raw) : {};
+          var theme = prefs.theme || 'system';
+          var dark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+          if (prefs.language) document.documentElement.lang = prefs.language;
+        } catch (error) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

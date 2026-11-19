@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and test output
+*.log
+npm-debug.log*
+coverage/
+
+# TypeScript build metadata
+*.tsbuildinfo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local editor state
+.idea/
+.history/
